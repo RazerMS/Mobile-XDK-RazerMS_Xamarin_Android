@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 
 namespace MOLPayXDKExample
 {
-    [Activity(Label = "MOLPayXDKExample")]
+    [Activity(Label = "MOLPayXDKExample", ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class MOLPayActivity : Activity
     {
         public const int MOLPayXDK = 9999;
