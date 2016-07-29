@@ -91,6 +91,9 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     // Optional, set the token id to nominate a preferred token as the default selection
     paymentDetails.Add(MOLPayActivity.mp_preferred_token, "");
 
+    // Optional, credit card transaction type, set "AUTH" to authorize the transaction
+    paymentDetails.Add(MOLPayActivity.mp_tcctype, "");
+
 ## Start the payment module
 
     Intent intent = new Intent(this, typeof(MOLPayActivity));
