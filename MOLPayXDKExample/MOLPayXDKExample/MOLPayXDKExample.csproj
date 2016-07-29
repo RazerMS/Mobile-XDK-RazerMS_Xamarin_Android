@@ -98,7 +98,7 @@
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\images\poweredByMOLPay.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.f29f8607.js" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.10edf492.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\vendor.5c22674a.js" />
