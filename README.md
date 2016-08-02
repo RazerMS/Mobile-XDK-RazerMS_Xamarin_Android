@@ -88,7 +88,7 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     // Optional for customizing MOLPay UI
     paymentDetails.Add(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
 
-    // Optional, set the token id to nominate a preferred token as the default selection
+    // Optional, set the token id to nominate a preferred token as the default selection, set "new" to allow new card only
     paymentDetails.Add(MOLPayActivity.mp_preferred_token, "");
 
     // Optional, credit card transaction type, set "AUTH" to authorize the transaction
