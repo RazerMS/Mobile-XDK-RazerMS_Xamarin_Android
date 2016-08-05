@@ -56,6 +56,7 @@ namespace MainActivity
             //paymentDetails.Add(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
             //paymentDetails.Add(MOLPayActivity.mp_preferred_token, "");
             //paymentDetails.Add(MOLPayActivity.mp_tcctype, "");
+            paymentDetails.Add(MOLPayActivity.mp_is_recurring, false);
 
             Intent intent = new Intent(this, typeof(MOLPayActivity));
             intent.PutExtra(MOLPayActivity.MOLPayPaymentDetails, JsonConvert.SerializeObject(paymentDetails));

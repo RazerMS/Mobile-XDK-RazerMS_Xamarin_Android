@@ -94,6 +94,9 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     // Optional, credit card transaction type, set "AUTH" to authorize the transaction
     paymentDetails.Add(MOLPayActivity.mp_tcctype, "");
 
+    // Optional, set true to process this transaction through the recurring api, please refer the MOLPay Recurring API pdf 
+    paymentDetails.Add(MOLPayActivity.mp_is_recurring, false);
+
 ## Start the payment module
 
     Intent intent = new Intent(this, typeof(MOLPayActivity));
