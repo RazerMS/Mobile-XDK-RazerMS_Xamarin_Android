@@ -183,6 +183,7 @@ namespace MOLPayXDKExample
                         else
                         {
                             transactionResults = dataString;
+                            molpayActivity.Window.ClearFlags(WindowManagerFlags.Secure);
                             isClosingReceipt = true;
                         }
                     }
