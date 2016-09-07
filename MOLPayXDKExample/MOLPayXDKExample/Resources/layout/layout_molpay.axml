@@ -18,5 +18,6 @@
         android:layout_height="match_parent"
         android:id="@+id/resultTV"
         android:background="@android:color/darker_gray"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@android:color/background_dark"
+        android:padding="50px" />
 </RelativeLayout>

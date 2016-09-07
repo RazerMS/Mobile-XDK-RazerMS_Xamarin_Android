@@ -20,19 +20,21 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
 
 ## Installation
 
-    Step 1 - On the Solution Explorer of Visual Studio, right click on your Xamarin Android project name and go to Add -> Existing Item..., on the window that pops up, select MOLPayActivity.cs and click Add.
+    Step 1 - In the Solution Explorer of Visual Studio, right click on your Xamarin Android project name and go to Add -> Existing Item..., on the window that pops up, select MOLPayActivity.cs and click Add.
 
-    Step 2 - Drag and drop molpay-mobile-xdk-www folder (can be separately downloaded at https://github.com/MOLPay/molpay-mobile-xdk-www) into Assets folder of your Xamarin Android project.
+    Step 2 - Copy and paste molpay-mobile-xdk-www folder (can be separately downloaded at https://github.com/MOLPay/molpay-mobile-xdk-www) into the Assets\ folder of your Xamarin Android project.
 
-    Step 3 - Drag and drop custom.css into Assets folder of your Xamarin Android project.
+    Step 3 - Copy and paste custom.css into the Assets\ folder of your Xamarin Android project.
 
-    Step 4 - Drag and drop layout_molpay.axml into Resources\layout\ folder of your Xamarin Android project. (Create one if the directory does not exist)
+    Step 4 - Copy and paste layout_molpay.axml into the Resources\layout\ folder of your Xamarin Android project. (Create one if the directory does not exist)
 
-    Step 5 - Drag and drop menu_molpay.xml into Resources\menu\ folder of your Xamarin Android project. (Create one if the directory does not exist)
+    Step 5 - Copy and paste menu_molpay.xml into the Resources\menu\ folder of your Xamarin Android project. (Create one if the directory does not exist)
 
-    Step 6 - Install Json.NET by going to Tools -> NuGet Package Manager -> Package Manager Console, paste this Install-Package Newtonsoft.Json into the console and press enter. You may refer to this website http://www.newtonsoft.com/json.
+    Step 6 - In the Solution Explorer of Visual Studio, click the 'Show All Files' button, after that all the files and folders that are pasted just now will be shown. Right click on each of them and click 'Include In Project'.
 
-    Step 7 - Override the OnActivityResult function.
+    Step 7 - Install Json.NET by going to Tools -> NuGet Package Manager -> Package Manager Console, paste this Install-Package Newtonsoft.Json into the console and press enter. You may refer to this website http://www.newtonsoft.com/json.
+
+    Step 8 - Override the OnActivityResult function.
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
         base.OnActivityResult(requestCode, resultCode, data);
@@ -76,7 +78,7 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     2) API credentials (username, password, merchant id, verify key)
     3) MOLPay server offline.
 
-## Using namespaces
+## Import namespaces
 
     using MOLPayXDKExample;
     using Newtonsoft.Json;

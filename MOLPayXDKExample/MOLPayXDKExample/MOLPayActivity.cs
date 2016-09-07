@@ -46,17 +46,19 @@ namespace MOLPayXDKExample
         public const String mp_tcctype = "mp_tcctype";
         public const String mp_is_recurring = "mp_is_recurring";
 
+        private const String mpopenmolpaywindow = "mpopenmolpaywindow://";
+        private const String mpcloseallwindows = "mpcloseallwindows://";
+        private const String mptransactionresults = "mptransactionresults://";
+        private const String mprunscriptonpopup = "mprunscriptonpopup://";
+        private const String molpayresulturl = "https://www.onlinepayment.com.my/MOLPay/result.php";
+        private const String molpaynbepayurl = "https://www.onlinepayment.com.my/MOLPay/nbepay.php";
+        private const String module_id = "module_id";
+        private const String wrapper_version = "wrapper_version";
         private static MOLPayActivity molpayActivity;
         private static WebView mpMainUI, mpMOLPayUI, mpBankUI;
         private static TextView tw;
         private static Dictionary<String, object> paymentDetails;
         private static String transactionResults;
-        private const String mpopenmolpaywindow = "mpopenmolpaywindow://";
-        private const String mpcloseallwindows = "mpcloseallwindows://";
-        private const String mptransactionresults = "mptransactionresults://";
-        private const String mprunscriptonpopup = "mprunscriptonpopup://";
-        private const String module_id = "module_id";
-        private const String wrapper_version = "wrapper_version";
         private static Boolean isMainUILoaded = false;
         private static Boolean isClosingReceipt = false;
 
@@ -227,7 +229,7 @@ namespace MOLPayXDKExample
             {
                 Console.WriteLine("MPMOLPayUIWebClient onPageStarted url = " + url);
 
-                if (url != null && url.StartsWith("https://www.onlinepayment.com.my/MOLPay/result.php?"))
+                if (url != null && url.StartsWith(molpayresulturl))
                 {
                     NativeWebRequestUrlUpdates(url);
                 }
@@ -264,7 +266,7 @@ namespace MOLPayXDKExample
             {
                 Console.WriteLine("MPBankUIWebClient onPageStarted url = " + url);
 
-                if (url != null && url.StartsWith("https://www.onlinepayment.com.my/MOLPay/result.php?"))
+                if (url != null && url.StartsWith(molpayresulturl))
                 {
                     NativeWebRequestUrlUpdates(url);
                 }
