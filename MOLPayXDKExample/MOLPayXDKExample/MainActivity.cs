@@ -36,10 +36,10 @@ namespace MainActivity
             paymentDetails.Add(MOLPayActivity.mp_password, "");
             paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "");
             paymentDetails.Add(MOLPayActivity.mp_app_name, "");
-            paymentDetails.Add(MOLPayActivity.mp_verification_key, "");
             paymentDetails.Add(MOLPayActivity.mp_order_ID, "");
             paymentDetails.Add(MOLPayActivity.mp_currency, "");
             paymentDetails.Add(MOLPayActivity.mp_country, "");
+            paymentDetails.Add(MOLPayActivity.mp_verification_key, "");
             paymentDetails.Add(MOLPayActivity.mp_channel, "");
             paymentDetails.Add(MOLPayActivity.mp_bill_description, "");
             paymentDetails.Add(MOLPayActivity.mp_bill_name, "");
