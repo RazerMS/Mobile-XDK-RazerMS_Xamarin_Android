@@ -10,6 +10,8 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
 
     - Microsoft Visual Studio Community 2015 (For Windows)
 
+    - Package Json.NET
+
     - Minimum Android API level: 19 ++
 
     - Minimum Android target version: Android 4.4
@@ -32,9 +34,11 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
 
     Step 6 - In the Solution Explorer of Visual Studio, click the 'Show All Files' button, after that all the files and folders that are pasted just now will be shown. Right click on each of them and click 'Include In Project'.
 
-    Step 7 - Install Json.NET by going to Tools -> NuGet Package Manager -> Package Manager Console, paste this Install-Package Newtonsoft.Json into the console and press enter. You may refer to this website http://www.newtonsoft.com/json.
+    Step 7 - Right click on your android project and select Properties. Select Android Manifest in the window that opens. Check WRITE_EXTERNAL_STORAGE in the list of permissions.
 
-    Step 8 - Override the OnActivityResult function.
+    Step 8 - Install Json.NET by going to Tools -> NuGet Package Manager -> Package Manager Console, paste this 'Install-Package Newtonsoft.Json' (without the quotes) into the console and press enter. You may refer to this website http://www.newtonsoft.com/json.
+
+    Step 9 - Override the OnActivityResult function.
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
         base.OnActivityResult(requestCode, resultCode, data);
@@ -74,8 +78,8 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     Parameter and meaning:
     
     "Communication Error" - Error starting a payment process due to several possible reasons, please contact MOLPay support should the error persists.
-    1) Internet not available
-    2) API credentials (username, password, merchant id, verify key)
+    1) Internet not available.
+    2) API credentials (username, password, merchant id, verify key).
     3) MOLPay server offline.
 
 ## Import namespaces
@@ -133,6 +137,13 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
 
     // Optional, set true to process this transaction through the recurring api, please refer the MOLPay Recurring API pdf 
     paymentDetails.Add(MOLPayActivity.mp_is_recurring, false);
+
+    // Optional for sandboxed development environment, set boolean value to enable
+    paymentDetails.Add(MOLPayActivity.mp_sandbox_mode, false);
+
+    // Optional for channels restriction 
+    String[] allowedChannels = new String[] { "credit", "credit3", null };
+    paymentDetails.Add(MOLPayActivity.mp_allowed_channels, allowedChannels);
 
 ## Start the payment module
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Drawing;
 using System.Text;
 using Android.App;
 using Android.Content;
@@ -11,6 +12,9 @@ using Android.Views;
 using Android.Webkit;
 using Android.Widget;
 using Newtonsoft.Json;
+using Android.Util;
+using System.IO;
+using Android.Media;
 
 namespace MOLPayXDKExample
 {
@@ -45,11 +49,14 @@ namespace MOLPayXDKExample
         public const String mp_preferred_token = "mp_preferred_token";
         public const String mp_tcctype = "mp_tcctype";
         public const String mp_is_recurring = "mp_is_recurring";
+        public const String mp_sandbox_mode = "mp_sandbox_mode";
+        public const String mp_allowed_channels = "mp_allowed_channels";
 
         private const String mpopenmolpaywindow = "mpopenmolpaywindow://";
         private const String mpcloseallwindows = "mpcloseallwindows://";
         private const String mptransactionresults = "mptransactionresults://";
         private const String mprunscriptonpopup = "mprunscriptonpopup://";
+		private const String mppinstructioncapture = "mppinstructioncapture://";
         private const String molpayresulturl = "https://www.onlinepayment.com.my/MOLPay/result.php";
         private const String molpaynbepayurl = "https://www.onlinepayment.com.my/MOLPay/nbepay.php";
         private const String module_id = "module_id";
@@ -61,6 +68,12 @@ namespace MOLPayXDKExample
         private static String transactionResults;
         private static Boolean isMainUILoaded = false;
         private static Boolean isClosingReceipt = false;
+
+		public class Image
+		{
+			public string filename { get; set; }
+			public string base64ImageUrlData { get; set; }
+		}
 
         private static void CloseMolpay()
         {
@@ -128,84 +141,114 @@ namespace MOLPayXDKExample
             {
                 Console.WriteLine("MPMainUIWebClient shouldOverrideUrlLoading url = " + url);
 
-                if (url != null && url.StartsWith(mpopenmolpaywindow))
-                {
-                    String base64String = url.Replace(mpopenmolpaywindow, "");
-                    Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow base64String = " + base64String);
-                    
-                    String dataString = Base64Decode(base64String);
-                    Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow dataString = " + dataString);
+				if (url != null && url.StartsWith(mpopenmolpaywindow))
+				{
+					String base64String = url.Replace(mpopenmolpaywindow, "");
+					Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow base64String = " + base64String);
 
-                    if (dataString.Length > 0)
+					String dataString = Base64Decode(base64String);
+					Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow dataString = " + dataString);
+
+					if (dataString.Length > 0)
+					{
+						Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow success");
+						mpMOLPayUI.LoadDataWithBaseURL("", dataString, "text/html", "UTF-8", "");
+						mpMOLPayUI.Visibility = ViewStates.Visible;
+					}
+					else
+					{
+						Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow empty dataString");
+					}
+				}
+				else if (url != null && url.StartsWith(mpcloseallwindows))
+				{
+					if (mpBankUI != null)
+					{
+						mpBankUI.LoadUrl("about:blank");
+						mpBankUI.Visibility = ViewStates.Gone;
+						mpBankUI.ClearCache(true);
+						mpBankUI.ClearHistory();
+						mpBankUI = null;
+					}
+					mpMOLPayUI.LoadUrl("about:blank");
+					mpMOLPayUI.Visibility = ViewStates.Gone;
+					mpMOLPayUI.ClearCache(true);
+					mpMOLPayUI.ClearHistory();
+				}
+				else if (url != null && url.StartsWith(mptransactionresults))
+				{
+					String base64String = url.Replace(mptransactionresults, "");
+					Console.WriteLine("MPMainUIWebClient mptransactionresults base64String = " + base64String);
+
+					String dataString = Base64Decode(base64String);
+					Console.WriteLine("MPMainUIWebClient mptransactionresults dataString = " + dataString);
+
+					try
+					{
+						Dictionary<String, object> jsonResult = JsonConvert.DeserializeObject<Dictionary<String, object>>(dataString);
+
+						Console.WriteLine("MPMainUIWebClient jsonResult = " + jsonResult.ToString());
+
+						Object requestType;
+						jsonResult.TryGetValue("mp_request_type", out requestType);
+						if (!jsonResult.ContainsKey("mp_request_type") || (String)requestType != "Receipt" || jsonResult.ContainsKey("error_code"))
+						{
+							molpayActivity.PassTransactionResultBack(dataString);
+						}
+						else
+						{
+							transactionResults = dataString;
+							//molpayActivity.Window.ClearFlags(WindowManagerFlags.Secure);
+							isClosingReceipt = true;
+						}
+					}
+					catch (Exception ex)
+					{
+						molpayActivity.PassTransactionResultBack(dataString);
+					}
+				}
+				else if (url != null && url.StartsWith(mprunscriptonpopup))
+				{
+					String base64String = url.Replace(mprunscriptonpopup, "");
+					Console.WriteLine("MPMainUIWebClient mprunscriptonpopup base64String = " + base64String);
+
+					String jsString = Base64Decode(base64String);
+					Console.WriteLine("MPMainUIWebClient mprunscriptonpopup jsString = " + jsString);
+
+					if (mpBankUI != null)
+					{
+						mpBankUI.LoadUrl("javascript:" + jsString);
+						Console.WriteLine("mpBankUI loadUrl = " + "javascript:" + jsString);
+					}
+                }
+                else if (url != null && url.StartsWith(mppinstructioncapture))
+                {
+                    String base64String = url.Replace(mppinstructioncapture, "");
+                    Console.WriteLine("MPMainUIWebClient mppinstructioncapture base64String = " + base64String);
+
+                    String jsString = Base64Decode(base64String);
+                    Console.WriteLine("MPMainUIWebClient mppinstructioncapture jsString = " + jsString);
+
+                    var json = JsonConvert.DeserializeObject<Image>(jsString);
+                    byte[] imageAsBytes = Base64.Decode(json.base64ImageUrlData, Base64Flags.Default);
+                    Bitmap bitmap = BitmapFactory.DecodeByteArray(imageAsBytes, 0, imageAsBytes.Length);
+
+                    var sdCardPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
+                    var filePath = System.IO.Path.Combine(sdCardPath.ToString(), json.filename);
+                    var stream = new FileStream(filePath, FileMode.Create);
+
+                    bool compress = bitmap.Compress(Bitmap.CompressFormat.Png, 100, stream);
+                    stream.Close();
+
+                    MediaScannerConnection.ScanFile(Application.Context, new String[] { filePath }, null, null);
+
+                    if (compress)
                     {
-                        Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow success");
-                        mpMOLPayUI.LoadDataWithBaseURL("", dataString, "text/html", "UTF-8", "");
-                        mpMOLPayUI.Visibility = ViewStates.Visible;
+                        Toast.MakeText(molpayActivity, "Image saved", ToastLength.Short).Show();
                     }
                     else
                     {
-                        Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow empty dataString");
-                    }
-                }
-                else if (url != null && url.StartsWith(mpcloseallwindows))
-                {
-                    if (mpBankUI != null)
-                    {
-                        mpBankUI.LoadUrl("about:blank");
-                        mpBankUI.Visibility = ViewStates.Gone;
-                        mpBankUI.ClearCache(true);
-                        mpBankUI.ClearHistory();
-                        mpBankUI = null;
-                    }
-                    mpMOLPayUI.LoadUrl("about:blank");
-                    mpMOLPayUI.Visibility = ViewStates.Gone;
-                    mpMOLPayUI.ClearCache(true);
-                    mpMOLPayUI.ClearHistory();
-                }
-                else if (url != null && url.StartsWith(mptransactionresults))
-                {
-                    String base64String = url.Replace(mptransactionresults, "");
-                    Console.WriteLine("MPMainUIWebClient mptransactionresults base64String = " + base64String);
-                    
-                    String dataString = Base64Decode(base64String);
-                    Console.WriteLine("MPMainUIWebClient mptransactionresults dataString = " + dataString);
-                    
-                    try
-                    {
-                        Dictionary<String, object> jsonResult = JsonConvert.DeserializeObject<Dictionary<String, object>>(dataString);
-
-                        Console.WriteLine("MPMainUIWebClient jsonResult = " + jsonResult.ToString());
-
-                        Object requestType;
-                        jsonResult.TryGetValue("mp_request_type", out requestType);
-                        if (!jsonResult.ContainsKey("mp_request_type") || (String)requestType != "Receipt" || jsonResult.ContainsKey("error_code"))
-                        {
-                            molpayActivity.PassTransactionResultBack(dataString);
-                        }
-                        else
-                        {
-                            transactionResults = dataString;
-                            molpayActivity.Window.ClearFlags(WindowManagerFlags.Secure);
-                            isClosingReceipt = true;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        molpayActivity.PassTransactionResultBack(dataString);
-                    }
-                }
-                else if (url != null && url.StartsWith(mprunscriptonpopup))
-                {
-                    String base64String = url.Replace(mprunscriptonpopup, "");
-                    Console.WriteLine("MPMainUIWebClient mprunscriptonpopup base64String = " + base64String);
-                    
-                    String jsString = Base64Decode(base64String);
-                    Console.WriteLine("MPMainUIWebClient mprunscriptonpopup jsString = " + jsString);
-
-                    if (mpBankUI != null)
-                    {
-                        mpBankUI.LoadUrl("javascript:" + jsString);
-                        Console.WriteLine("mpBankUI loadUrl = " + "javascript:" + jsString);
+                        Toast.MakeText(molpayActivity, "Image not saved", ToastLength.Short).Show();
                     }
                 }
 

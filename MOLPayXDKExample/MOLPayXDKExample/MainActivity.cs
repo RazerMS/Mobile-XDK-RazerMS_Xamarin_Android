@@ -37,8 +37,8 @@ namespace MainActivity
             paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "");
             paymentDetails.Add(MOLPayActivity.mp_app_name, "");
             paymentDetails.Add(MOLPayActivity.mp_order_ID, "");
-            paymentDetails.Add(MOLPayActivity.mp_currency, "");
-            paymentDetails.Add(MOLPayActivity.mp_country, "");
+            paymentDetails.Add(MOLPayActivity.mp_currency, "MYR");
+            paymentDetails.Add(MOLPayActivity.mp_country, "MY");
             paymentDetails.Add(MOLPayActivity.mp_verification_key, "");
             paymentDetails.Add(MOLPayActivity.mp_channel, "");
             paymentDetails.Add(MOLPayActivity.mp_bill_description, "");
@@ -57,6 +57,9 @@ namespace MainActivity
             //paymentDetails.Add(MOLPayActivity.mp_preferred_token, "");
             //paymentDetails.Add(MOLPayActivity.mp_tcctype, "");
             paymentDetails.Add(MOLPayActivity.mp_is_recurring, false);
+            paymentDetails.Add(MOLPayActivity.mp_sandbox_mode, false);
+            //String[] allowedChannels = new String[] { "credit", "credit3", null };
+            //paymentDetails.Add(MOLPayActivity.mp_allowed_channels, allowedChannels);
 
             Intent intent = new Intent(this, typeof(MOLPayActivity));
             intent.PutExtra(MOLPayActivity.MOLPayPaymentDetails, JsonConvert.SerializeObject(paymentDetails));
@@ -64,4 +67,3 @@ namespace MainActivity
         }
     }
 }
-
