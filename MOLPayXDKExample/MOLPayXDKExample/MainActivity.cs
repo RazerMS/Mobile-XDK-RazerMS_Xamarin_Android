@@ -60,6 +60,7 @@ namespace MainActivity
             paymentDetails.Add(MOLPayActivity.mp_sandbox_mode, false);
             //String[] allowedChannels = new String[] { "credit", "credit3", null };
             //paymentDetails.Add(MOLPayActivity.mp_allowed_channels, allowedChannels);
+            paymentDetails.Add(MOLPayActivity.mp_express_mode, false);
 
             Intent intent = new Intent(this, typeof(MOLPayActivity));
             intent.PutExtra(MOLPayActivity.MOLPayPaymentDetails, JsonConvert.SerializeObject(paymentDetails));

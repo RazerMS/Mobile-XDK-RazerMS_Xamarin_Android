@@ -51,6 +51,7 @@ namespace MOLPayXDKExample
         public const String mp_is_recurring = "mp_is_recurring";
         public const String mp_sandbox_mode = "mp_sandbox_mode";
         public const String mp_allowed_channels = "mp_allowed_channels";
+        public const String mp_express_mode = "mp_express_mode";
 
         private const String mpopenmolpaywindow = "mpopenmolpaywindow://";
         private const String mpcloseallwindows = "mpcloseallwindows://";
@@ -202,7 +203,7 @@ namespace MOLPayXDKExample
 							isClosingReceipt = true;
 						}
 					}
-					catch (Exception ex)
+					catch (Exception)
 					{
 						molpayActivity.PassTransactionResultBack(dataString);
 					}
