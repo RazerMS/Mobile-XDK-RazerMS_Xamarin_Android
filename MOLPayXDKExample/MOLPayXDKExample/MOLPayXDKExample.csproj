@@ -61,12 +61,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\fontawesome-webfont.eot" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\fontawesome-webfont.ttf" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\fontawesome-webfont.woff" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\fontawesome-webfont.woff2" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\FontAwesome.otf" />
-    <None Include="app.config" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
@@ -105,10 +105,10 @@
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\images\poweredByMOLPay.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.2c26c95c.js" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.bece1f14.js" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\vendor.f206a627.js" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\vendor.8ef18f5b.js" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\styles\main.d7e0b867.css" />

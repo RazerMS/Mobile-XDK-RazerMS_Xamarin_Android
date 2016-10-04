@@ -145,12 +145,15 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     String[] allowedChannels = new String[] { "credit", "credit3", null };
     paymentDetails.Add(MOLPayActivity.mp_allowed_channels, allowedChannels);
 
+    // Optional, required a valid mp_channel value, this will skip the payment info page and go direct to the payment screen.
+    paymentDetails.Add(MOLPayActivity.mp_express_mode, false);
+
 ## Start the payment module
 
     Intent intent = new Intent(this, typeof(MOLPayActivity));
     intent.PutExtra(MOLPayActivity.MOLPayPaymentDetails, JsonConvert.SerializeObject(paymentDetails));
     StartActivityForResult(intent, MOLPayActivity.MOLPayXDK);
-    
+
 ## Cash channel payment process (How does it work?)
 
     This is how the cash channels work on XDK:
