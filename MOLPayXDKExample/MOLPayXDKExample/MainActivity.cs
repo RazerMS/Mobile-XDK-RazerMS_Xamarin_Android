@@ -56,11 +56,11 @@ namespace MainActivity
             //paymentDetails.Add(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
             //paymentDetails.Add(MOLPayActivity.mp_preferred_token, "");
             //paymentDetails.Add(MOLPayActivity.mp_tcctype, "");
-            paymentDetails.Add(MOLPayActivity.mp_is_recurring, false);
-            paymentDetails.Add(MOLPayActivity.mp_sandbox_mode, false);
+            //paymentDetails.Add(MOLPayActivity.mp_is_recurring, false);
+            //paymentDetails.Add(MOLPayActivity.mp_sandbox_mode, false);
             //String[] allowedChannels = new String[] { "credit", "credit3", null };
             //paymentDetails.Add(MOLPayActivity.mp_allowed_channels, allowedChannels);
-            paymentDetails.Add(MOLPayActivity.mp_express_mode, false);
+            //paymentDetails.Add(MOLPayActivity.mp_express_mode, false);
 
             Intent intent = new Intent(this, typeof(MOLPayActivity));
             intent.PutExtra(MOLPayActivity.MOLPayPaymentDetails, JsonConvert.SerializeObject(paymentDetails));
