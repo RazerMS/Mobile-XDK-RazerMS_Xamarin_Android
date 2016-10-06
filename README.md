@@ -36,7 +36,7 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
 
     Step 7 - Right click on your android project and select Properties. Select Android Manifest in the window that opens. Check WRITE_EXTERNAL_STORAGE in the list of permissions.
 
-    Step 8 - Install Json.NET by going to Tools -> NuGet Package Manager -> Package Manager Console, paste this 'Install-Package Newtonsoft.Json' (without the quotes) into the console and press enter. You may refer to this website http://www.newtonsoft.com/json.
+    Step 8 - Install Json.NET by going to Tools -> NuGet Package Manager -> Package Manager Console, and run this command 'Install-Package Newtonsoft.Json' (without the quotes) in the console. You may refer to this website http://www.newtonsoft.com/json.
 
     Step 9 - Override the OnActivityResult function.
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
