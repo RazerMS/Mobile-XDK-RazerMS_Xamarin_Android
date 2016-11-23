@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\custom.css" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\.DS_Store" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\index.html" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\FontAwesome.otf" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\fontawesome-webfont.eot" />
@@ -95,7 +96,7 @@
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\fontawesome-webfont.woff2" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\images\ImageUnavailable.png" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\images\poweredByMOLPay.png" />
-    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.0167523c.js" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.e4c7562a.js" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\vendor.8ef18f5b.js" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\styles\main.d7e0b867.css" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\styles\vendor.34eb91d2.css" />
