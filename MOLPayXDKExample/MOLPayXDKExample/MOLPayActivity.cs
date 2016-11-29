@@ -57,7 +57,7 @@ namespace MOLPayXDKExample
         private const String mpcloseallwindows = "mpcloseallwindows://";
         private const String mptransactionresults = "mptransactionresults://";
         private const String mprunscriptonpopup = "mprunscriptonpopup://";
-		private const String mppinstructioncapture = "mppinstructioncapture://";
+        private const String mppinstructioncapture = "mppinstructioncapture://";
         private const String molpayresulturl = "https://www.onlinepayment.com.my/MOLPay/result.php";
         private const String molpaynbepayurl = "https://www.onlinepayment.com.my/MOLPay/nbepay.php";
         private const String module_id = "module_id";
@@ -69,11 +69,11 @@ namespace MOLPayXDKExample
         private static Boolean isMainUILoaded = false;
         private static Boolean isClosingReceipt = false;
 
-		public class Image
-		{
-			public String filename { get; set; }
-			public String base64ImageUrlData { get; set; }
-		}
+        public class Image
+        {
+            public String filename { get; set; }
+            public String base64ImageUrlData { get; set; }
+        }
 
         private static void CloseMolpay()
         {
@@ -85,29 +85,29 @@ namespace MOLPayXDKExample
             }
         }
 
-		public override void OnBackPressed()
-		{
-			CloseMolpay();
-		}
+        public override void OnBackPressed()
+        {
+            CloseMolpay();
+        }
 
-		public override bool OnCreateOptionsMenu(IMenu menu)
-		{
-			MenuInflater.Inflate(Resource.Menu.menu_molpay, menu);
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.menu_molpay, menu);
 
-			return base.OnCreateOptionsMenu(menu);
-		}
+            return base.OnCreateOptionsMenu(menu);
+        }
 
-		public override bool OnOptionsItemSelected(IMenuItem item)
-		{
-			switch (item.ItemId)
-			{
-				case Resource.Id.closeBtn:
-					CloseMolpay();
-					return true;
-				default:
-					return base.OnOptionsItemSelected(item);
-			}
-		}
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.closeBtn:
+                    CloseMolpay();
+                    return true;
+                default:
+                    return base.OnOptionsItemSelected(item);
+            }
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -133,17 +133,17 @@ namespace MOLPayXDKExample
             mpMOLPayUI.Visibility = ViewStates.Gone;
             tw.Visibility = ViewStates.Gone;
 
-			mpMainUI.Settings.AllowUniversalAccessFromFileURLs = true;
+            mpMainUI.Settings.AllowUniversalAccessFromFileURLs = true;
             mpMainUI.LoadUrl("file:///android_asset/molpay-mobile-xdk-www/index.html");
             mpMainUI.SetWebViewClient(new MPMainUIWebClient());
             
-			mpMOLPayUI.Settings.AllowUniversalAccessFromFileURLs = true;
-			mpMOLPayUI.Settings.JavaScriptCanOpenWindowsAutomatically = true;
-			mpMOLPayUI.Settings.SetSupportMultipleWindows(true);
+            mpMOLPayUI.Settings.AllowUniversalAccessFromFileURLs = true;
+            mpMOLPayUI.Settings.JavaScriptCanOpenWindowsAutomatically = true;
+            mpMOLPayUI.Settings.SetSupportMultipleWindows(true);
             mpMOLPayUI.SetWebViewClient(new MPMOLPayUIWebClient());
             mpMOLPayUI.SetWebChromeClient(new MPMOLPayUIWebChromeClient());
 
-			CookieManager.Instance.SetAcceptCookie(true);
+            CookieManager.Instance.SetAcceptCookie(true);
         }
 
         public class MPMainUIWebClient : WebViewClient
@@ -305,9 +305,9 @@ namespace MOLPayXDKExample
                 mpBankUI.Settings.JavaScriptCanOpenWindowsAutomatically = true;
                 mpBankUI.Settings.SetSupportMultipleWindows(true);
                 mpBankUI.SetWebViewClient(new MPBankUIWebClient());
-				mpBankUI.SetWebChromeClient(new MPBankUIWebChromeClient());
+                mpBankUI.SetWebChromeClient(new MPBankUIWebChromeClient());
 
-				mpBankUI.LayoutParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MatchParent, LinearLayout.LayoutParams.MatchParent);
+                mpBankUI.LayoutParameters = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MatchParent, LinearLayout.LayoutParams.MatchParent);
                 container.AddView(mpBankUI);
                 WebView.WebViewTransport transport = (WebView.WebViewTransport)resultMsg.Obj;
                 transport.WebView = mpBankUI;
@@ -335,13 +335,13 @@ namespace MOLPayXDKExample
             }
         }
 
-		public class MPBankUIWebChromeClient : WebChromeClient
-		{
-			public override void OnCloseWindow(WebView window)
-			{
-				CloseMolpay();
-			}
-		}
+        public class MPBankUIWebChromeClient : WebChromeClient
+        {
+            public override void OnCloseWindow(WebView window)
+            {
+                CloseMolpay();
+            }
+        }
 
         private static void NativeWebRequestUrlUpdates(String url)
         {
