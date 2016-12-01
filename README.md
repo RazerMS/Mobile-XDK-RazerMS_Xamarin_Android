@@ -148,6 +148,12 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     // Optional, required a valid mp_channel value, this will skip the payment info page and go direct to the payment screen.
     paymentDetails.Add(MOLPayActivity.mp_express_mode, false);
 
+    // Optional, enable this for extended email format validation based on W3C standards.
+    paymentDetails.Add(MOLPay.mp_advanced_email_validation_enabled, false);
+
+    // Optional, enable this for extended phone format validation based on Google i18n standards.
+    paymentDetails.Add(MOLPay.mp_advanced_phone_validation_enabled, false);
+
 ## Start the payment module
 
     Intent intent = new Intent(this, typeof(MOLPayActivity));
