@@ -39,6 +39,7 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     Step 8 - Install Json.NET by going to Tools -> NuGet Package Manager -> Package Manager Console, and run this command 'Install-Package Newtonsoft.Json' (without the quotes) in the console. You may refer to this website http://www.newtonsoft.com/json.
 
     Step 9 - Override the OnActivityResult function.
+    
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
         base.OnActivityResult(requestCode, resultCode, data);
@@ -142,7 +143,7 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     paymentDetails.Add(MOLPayActivity.mp_sandbox_mode, false);
 
     // Optional for channels restriction 
-    String[] allowedChannels = new String[] { "credit", "credit3", null };
+    String[] allowedChannels = new String[] { "", "" };
     paymentDetails.Add(MOLPayActivity.mp_allowed_channels, allowedChannels);
 
     // Optional, required a valid mp_channel value, this will skip the payment info page and go direct to the payment screen.
