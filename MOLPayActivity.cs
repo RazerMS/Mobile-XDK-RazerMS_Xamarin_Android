@@ -115,6 +115,7 @@ namespace MOLPayXDKExample
         {
             base.OnCreate(savedInstanceState);
 
+			isMainUILoaded = false;
             molpayActivity = this;
 
             Window.SetFlags(WindowManagerFlags.Secure, WindowManagerFlags.Secure);
@@ -123,7 +124,7 @@ namespace MOLPayXDKExample
             string json = Intent.GetStringExtra(MOLPayPaymentDetails);
             paymentDetails = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
             paymentDetails.Add(module_id, "molpay-mobile-xdk-xamarin-android");
-            paymentDetails.Add(wrapper_version, "0");
+            paymentDetails.Add(wrapper_version, "1");
 
             mpMainUI = FindViewById<WebView>(Resource.Id.MPMainUI);
             mpMOLPayUI = FindViewById<WebView>(Resource.Id.MPMOLPayUI);
@@ -136,8 +137,8 @@ namespace MOLPayXDKExample
             tw.Visibility = ViewStates.Gone;
 
             mpMainUI.Settings.AllowUniversalAccessFromFileURLs = true;
-            mpMainUI.LoadUrl("file:///android_asset/molpay-mobile-xdk-www/index.html");
             mpMainUI.SetWebViewClient(new MPMainUIWebClient());
+			mpMainUI.LoadUrl("file:///android_asset/molpay-mobile-xdk-www/index.html");
             
             mpMOLPayUI.Settings.AllowUniversalAccessFromFileURLs = true;
             mpMOLPayUI.Settings.JavaScriptCanOpenWindowsAutomatically = true;
