@@ -120,8 +120,8 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
 
     // Optional for credit card BIN restrictions
     String[] binlock = new String[] { "", "" };
-    paymentDetails.Add(MOLPay.mp_bin_lock, binlock); // Optional for credit card BIN restrictions
-    paymentDetails.Add(MOLPay.mp_bin_lock_err_msg, ""); // Optional for credit card BIN restrictions
+    paymentDetails.Add(MOLPayActivity.mp_bin_lock, binlock); // Optional for credit card BIN restrictions
+    paymentDetails.Add(MOLPayActivity.mp_bin_lock_err_msg, ""); // Optional for credit card BIN restrictions
 
     // For transaction request use only, do not use this on payment process
     paymentDetails.Add(MOLPayActivity.mp_transaction_id, ""); // Optional, provide a valid cash channel transaction id here will display a payment instruction screen.
@@ -150,10 +150,10 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     paymentDetails.Add(MOLPayActivity.mp_express_mode, false);
 
     // Optional, enable this for extended email format validation based on W3C standards.
-    paymentDetails.Add(MOLPay.mp_advanced_email_validation_enabled, false);
+    paymentDetails.Add(MOLPayActivity.mp_advanced_email_validation_enabled, false);
 
     // Optional, enable this for extended phone format validation based on Google i18n standards.
-    paymentDetails.Add(MOLPay.mp_advanced_phone_validation_enabled, false);
+    paymentDetails.Add(MOLPayActivity.mp_advanced_phone_validation_enabled, false);
 
 ## Start the payment module
 
