@@ -32,19 +32,19 @@ namespace MainActivity
 
             Dictionary<string, object> paymentDetails = new Dictionary<string, object>();
             paymentDetails.Add(MOLPayActivity.mp_amount, "");
-			paymentDetails.Add(MOLPayActivity.mp_username, "");
-			paymentDetails.Add(MOLPayActivity.mp_password, "");
-			paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "");
-			paymentDetails.Add(MOLPayActivity.mp_app_name, "");
-			paymentDetails.Add(MOLPayActivity.mp_order_ID, "");
-			paymentDetails.Add(MOLPayActivity.mp_currency, "MYR");
-			paymentDetails.Add(MOLPayActivity.mp_country, "MY");
-			paymentDetails.Add(MOLPayActivity.mp_verification_key, "");
-			paymentDetails.Add(MOLPayActivity.mp_channel, "");
-			paymentDetails.Add(MOLPayActivity.mp_bill_description, "");
-			paymentDetails.Add(MOLPayActivity.mp_bill_name, "");
-			paymentDetails.Add(MOLPayActivity.mp_bill_email, "");
-			paymentDetails.Add(MOLPayActivity.mp_bill_mobile, "");
+            paymentDetails.Add(MOLPayActivity.mp_username, "");
+            paymentDetails.Add(MOLPayActivity.mp_password, "");
+            paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "");
+            paymentDetails.Add(MOLPayActivity.mp_app_name, "");
+            paymentDetails.Add(MOLPayActivity.mp_order_ID, "");
+            paymentDetails.Add(MOLPayActivity.mp_currency, "MYR");
+            paymentDetails.Add(MOLPayActivity.mp_country, "MY");
+            paymentDetails.Add(MOLPayActivity.mp_verification_key, "");
+            paymentDetails.Add(MOLPayActivity.mp_channel, "");
+            paymentDetails.Add(MOLPayActivity.mp_bill_description, "");
+            paymentDetails.Add(MOLPayActivity.mp_bill_name, "");
+            paymentDetails.Add(MOLPayActivity.mp_bill_email, "");
+            paymentDetails.Add(MOLPayActivity.mp_bill_mobile, "");
             paymentDetails.Add(MOLPayActivity.mp_channel_editing, false);
             paymentDetails.Add(MOLPayActivity.mp_editing_enabled, false);
             //paymentDetails.Add(MOLPayActivity.mp_is_escrow, "");
@@ -61,8 +61,8 @@ namespace MainActivity
             //string[] allowedChannels = new string[] { "", "" };
             //paymentDetails.Add(MOLPayActivity.mp_allowed_channels, allowedChannels);
             //paymentDetails.Add(MOLPayActivity.mp_express_mode, false);
-            //paymentDetails.Add(MOLPay.mp_advanced_email_validation_enabled, false);
-            //paymentDetails.Add(MOLPay.mp_advanced_phone_validation_enabled, false);
+            //paymentDetails.Add(MOLPayActivity.mp_advanced_email_validation_enabled, false);
+            //paymentDetails.Add(MOLPayActivity.mp_advanced_phone_validation_enabled, false);
 
             Intent intent = new Intent(this, typeof(MOLPayActivity));
             intent.PutExtra(MOLPayActivity.MOLPayPaymentDetails, JsonConvert.SerializeObject(paymentDetails));
