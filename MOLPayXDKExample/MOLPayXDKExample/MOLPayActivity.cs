@@ -60,8 +60,8 @@ namespace MOLPayXDKExample
         private const string mptransactionresults = "mptransactionresults://";
         private const string mprunscriptonpopup = "mprunscriptonpopup://";
         private const string mppinstructioncapture = "mppinstructioncapture://";
-        private const string molpayresulturl = "https://www.onlinepayment.com.my/MOLPay/result.php";
-        private const string molpaynbepayurl = "https://www.onlinepayment.com.my/MOLPay/nbepay.php";
+        private const string molpayresulturl = "MOLPay/result.php";
+        private const string molpaynbepayurl = "MOLPay/nbepay.php";
         private const string module_id = "module_id";
         private const string wrapper_version = "wrapper_version";
         private static MOLPayActivity molpayActivity;
@@ -124,7 +124,7 @@ namespace MOLPayXDKExample
             string json = Intent.GetStringExtra(MOLPayPaymentDetails);
             paymentDetails = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
             paymentDetails.Add(module_id, "molpay-mobile-xdk-xamarin-android");
-            paymentDetails.Add(wrapper_version, "2");
+            paymentDetails.Add(wrapper_version, "0");
 
             mpMainUI = FindViewById<WebView>(Resource.Id.MPMainUI);
             mpMOLPayUI = FindViewById<WebView>(Resource.Id.MPMOLPayUI);
@@ -294,7 +294,7 @@ namespace MOLPayXDKExample
             {
                 Console.WriteLine("MPMOLPayUIWebClient onPageStarted url = " + url);
 
-                if (url != null && url.StartsWith(molpayresulturl))
+                if (url != null)
                 {
                     NativeWebRequestUrlUpdates(url);
                 }
@@ -332,7 +332,7 @@ namespace MOLPayXDKExample
             {
                 Console.WriteLine("MPBankUIWebClient onPageStarted url = " + url);
 
-                if (url != null && url.StartsWith(molpayresulturl))
+                if (url != null)
                 {
                     NativeWebRequestUrlUpdates(url);
                 }
@@ -341,7 +341,7 @@ namespace MOLPayXDKExample
             public override void OnPageFinished(WebView view, string url)
             {
                 Console.WriteLine("MPBankUIWebClient onPageFinished url = " + url);
-                NativeWebRequestUrlUpdatesOnFinishLoad(url);
+                NativeWebRequestUrlUpdates(url);
             }
         }
 
@@ -360,15 +360,6 @@ namespace MOLPayXDKExample
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("requestPath", url);
             mpMainUI.LoadUrl("javascript:nativeWebRequestUrlUpdates(" + JsonConvert.SerializeObject(data) + ")");
-        }
-
-        private static void NativeWebRequestUrlUpdatesOnFinishLoad(string url)
-        {
-            Console.WriteLine("nativeWebRequestUrlUpdatesOnFinishLoad url = " + url);
-
-            Dictionary<string, string> data = new Dictionary<string, string>();
-            data.Add("requestPath", url);
-            mpMainUI.LoadUrl("javascript:nativeWebRequestUrlUpdatesOnFinishLoad(" + JsonConvert.SerializeObject(data) + ")");
         }
 
         private static string Base64Encode(string plainText)
