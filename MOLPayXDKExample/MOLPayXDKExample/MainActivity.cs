@@ -63,6 +63,10 @@ namespace MainActivity
             //paymentDetails.Add(MOLPayActivity.mp_express_mode, false);
             //paymentDetails.Add(MOLPayActivity.mp_advanced_email_validation_enabled, false);
             //paymentDetails.Add(MOLPayActivity.mp_advanced_phone_validation_enabled, false);
+            //paymentDetails.Add(MOLPayActivity.mp_bill_name_edit_disabled, true);
+            //paymentDetails.Add(MOLPayActivity.mp_bill_email_edit_disabled, true);
+            //paymentDetails.Add(MOLPayActivity.mp_bill_mobile_edit_disabled, true);
+            //paymentDetails.Add(MOLPayActivity.mp_bill_description_edit_disabled, true);
 
             Intent intent = new Intent(this, typeof(MOLPayActivity));
             intent.PutExtra(MOLPayActivity.MOLPayPaymentDetails, JsonConvert.SerializeObject(paymentDetails));
