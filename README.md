@@ -15,10 +15,7 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     - Minimum Android API level: 19 ++
 
     - Minimum Android target version: Android 4.4
-    
-## MOLPay Android Caveats
 
-    Credit card payment channel is not available in Android 4.1, 4.2, and 4.3. due to lack of latest security (TLS 1.2) support on these Android platforms natively.
 
 ## Installation
 
