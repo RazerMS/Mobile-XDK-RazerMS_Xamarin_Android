@@ -86,7 +86,20 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\custom.css" />
+    <AndroidAsset Include="Assets\custom.css" /> 
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\stylesvendor.34eb91d2.css" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\stylesmain.88e23106.css" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scriptsvendor.c4deffd2.js" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scriptsscripts.e62461ec.js" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\index.html" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\imagespoweredByMOLPay.png" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\imagesImageUnavailable.png" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fontsFontAwesome.otf" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fontsfontawesome-webfont.woff2" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fontsfontawesome-webfont.woff" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fontsfontawesome-webfont.ttf" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fontsfontawesome-webfont.svg" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fontsfontawesome-webfont.eot" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
