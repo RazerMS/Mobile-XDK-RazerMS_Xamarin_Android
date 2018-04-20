@@ -104,7 +104,7 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     paymentDetails.Add(MOLPayActivity.mp_country, ""); 
 
     // Optional String.
-    paymentDetails.Add(MOLPayActivity.mp_channel, ""); // Use 'multi' for all available channels option. For individual channel seletion, please refer to "Channel Parameter" in "Channel Lists" in the MOLPay API Spec for Merchant pdf. 
+    paymentDetails.Add(MOLPayActivity.mp_channel, ""); // Use 'multi' for all available channels option. For individual channel seletion, please refer to https://github.com/MOLPay/molpay-mobile-xdk-examples/blob/master/channel_list.tsv. 
     paymentDetails.Add(MOLPayActivity.mp_bill_description, "");
     paymentDetails.Add(MOLPayActivity.mp_bill_name, "");
     paymentDetails.Add(MOLPayActivity.mp_bill_email, "");
