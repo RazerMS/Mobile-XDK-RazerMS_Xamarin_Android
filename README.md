@@ -172,6 +172,12 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     // Optional, enable for online sandbox testing.
     paymentDetails.Add(MOLPayActivity.mp_dev_mode, false);
 
+    // Optional, Cash channel payment request expiration duration in hour.
+    //paymentDetails.Add(MOLPay.mp_cash_waittime, "48");
+
+    // Optional, allow non-3ds on some credit card channels.
+    //paymentDetails.Add(MOLPay.mp_non_3DS, false);
+
 ## Start the payment module
 
     Intent intent = new Intent(this, typeof(MOLPayActivity));
