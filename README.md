@@ -174,10 +174,10 @@ This is the complete and functional MOLPay Xamarin Android payment module that i
     paymentDetails.Add(MOLPayActivity.mp_language, "EN");
 
     // Optional, Cash channel payment request expiration duration in hour.
-    //paymentDetails.Add(MOLPay.mp_cash_waittime, "48");
+    //paymentDetails.Add(MOLPayActivity.mp_cash_waittime, "48");
 
     // Optional, allow non-3ds on some credit card channels.
-    //paymentDetails.Add(MOLPay.mp_non_3DS, false);
+    //paymentDetails.Add(MOLPayActivity.mp_non_3DS, false);
     
     // Optional, disable card list option.
     paymentDetails.Add(MOLPayActivity.mp_card_list_disabled, false);
