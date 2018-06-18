@@ -88,9 +88,9 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\custom.css" /> 
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\styles\vendor.34eb91d2.css" />
-    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\styles\main.88e23106.css" />
-    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\vendor.3ecdb257.js" />
-    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.a4b76607.js" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\styles\main.9f3e4059.css" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\vendor.f927628e.js" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.f3a92fea.js" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\index.html" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\images\poweredByMOLPay.png" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\images\ImageUnavailable.png" />
