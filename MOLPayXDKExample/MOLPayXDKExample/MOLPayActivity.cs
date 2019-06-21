@@ -134,7 +134,7 @@ namespace MOLPayXDKExample
             string json = Intent.GetStringExtra(MOLPayPaymentDetails);
             paymentDetails = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
             paymentDetails.Add(module_id, "molpay-mobile-xdk-xamarin-android");
-            paymentDetails.Add(wrapper_version, "1");
+            paymentDetails.Add(wrapper_version, "0");
 
             mpMainUI = FindViewById<WebView>(Resource.Id.MPMainUI);
             mpMOLPayUI = FindViewById<WebView>(Resource.Id.MPMOLPayUI);

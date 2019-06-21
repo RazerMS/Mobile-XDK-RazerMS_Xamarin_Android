@@ -15,7 +15,6 @@
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidTlsProvider></AndroidTlsProvider>
@@ -90,7 +89,6 @@
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\styles\vendor.34eb91d2.css" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\styles\main.68a3f254.css" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\vendor.993ae4d8.js" />
-    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.1437d623.js" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\index.html" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\images\poweredByMOLPay.png" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\images\ImageUnavailable.png" />
@@ -100,6 +98,7 @@
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\fontawesome-webfont.ttf" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\fontawesome-webfont.svg" />
     <AndroidAsset Include="Assets\molpay-mobile-xdk-www\fonts\fontawesome-webfont.eot" />
+    <AndroidAsset Include="Assets\molpay-mobile-xdk-www\scripts\scripts.1f95c274.js" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
