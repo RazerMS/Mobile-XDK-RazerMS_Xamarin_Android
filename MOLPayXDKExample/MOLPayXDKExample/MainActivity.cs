@@ -31,16 +31,16 @@ namespace MainActivity
             base.OnCreate(bundle);
 
             Dictionary<string, object> paymentDetails = new Dictionary<string, object>();
-            paymentDetails.Add(MOLPayActivity.mp_amount, "1.10");
-            paymentDetails.Add(MOLPayActivity.mp_username, "molpayxdk");
-            paymentDetails.Add(MOLPayActivity.mp_password, "cT54#Lk@22");
-            paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "molpayxdk");
-            paymentDetails.Add(MOLPayActivity.mp_app_name, "molpayxdk");
-            paymentDetails.Add(MOLPayActivity.mp_order_ID, "xamarinandroid");
+            paymentDetails.Add(MOLPayActivity.mp_amount, "");
+            paymentDetails.Add(MOLPayActivity.mp_username, "");
+            paymentDetails.Add(MOLPayActivity.mp_password, "");
+            paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "");
+            paymentDetails.Add(MOLPayActivity.mp_app_name, "");
+            paymentDetails.Add(MOLPayActivity.mp_order_ID, "");
             paymentDetails.Add(MOLPayActivity.mp_currency, "MYR");
             paymentDetails.Add(MOLPayActivity.mp_country, "MY");
-            paymentDetails.Add(MOLPayActivity.mp_verification_key, "4445db44bdb60687a8e7f7903a59c3a9");
-            paymentDetails.Add(MOLPayActivity.mp_channel, "multi");
+            paymentDetails.Add(MOLPayActivity.mp_verification_key, "");
+            paymentDetails.Add(MOLPayActivity.mp_channel, "");
             paymentDetails.Add(MOLPayActivity.mp_bill_description, "billdesc");
             paymentDetails.Add(MOLPayActivity.mp_bill_name, "billname");
             paymentDetails.Add(MOLPayActivity.mp_bill_email, "example@gmail.com");
