@@ -2,7 +2,7 @@
 # license: Copyright © 2011-2019 RMS Sdn Bhd. All Rights Reserved. 
 -->
 
-<img src="https://user-images.githubusercontent.com/38641542/39353138-654385dc-4a39-11e8-9710-19e5f03ec62e.jpg">
+<img src="https://user-images.githubusercontent.com/38641542/74150364-ba947500-4c44-11ea-8d79-ae8cd4352816.jpg">
 
 # rms-mobile-xdk-xamarin-android
 
@@ -108,7 +108,7 @@ This is the complete and functional Razer Merchant Services Xamarin Android paym
     paymentDetails.Add(MOLPayActivity.mp_country, ""); 
 
     // Optional, but required payment values. User input will be required when values not passed.
-    paymentDetails.Add(MOLPayActivity.mp_channel, ""); // Use 'multi' for all available channels option. For individual channel seletion, please refer to https://github.com/MOLPay/molpay-mobile-xdk-examples/blob/master/channel_list.tsv. 
+    paymentDetails.Add(MOLPayActivity.mp_channel, ""); // Use 'multi' for all available channels option. For individual channel seletion, please refer to https://github.com/RazerMS/molpay-mobile-xdk-examples/blob/master/channel_list.tsv. 
     paymentDetails.Add(MOLPayActivity.mp_bill_description, "");
     paymentDetails.Add(MOLPayActivity.mp_bill_name, "");
     paymentDetails.Add(MOLPayActivity.mp_bill_email, "");
@@ -136,7 +136,7 @@ This is the complete and functional Razer Merchant Services Xamarin Android paym
     // Optional, use 'Receipt' for Cash channels, and 'Status' for transaction status query.
     paymentDetails.Add(MOLPayActivity.mp_request_type, "");
 
-    // Optional, use this to customize the UI theme for the payment info screen, the original XDK custom.css file can be obtained at https://github.com/MOLPay/molpay-mobile-xdk-examples/blob/master/custom.css.
+    // Optional, use this to customize the UI theme for the payment info screen, the original XDK custom.css file can be obtained at https://github.com/RazerMS/molpay-mobile-xdk-examples/blob/master/custom.css.
     paymentDetails.Add(MOLPayActivity.mp_custom_css_url, "file:///android_asset/custom.css");
 
     // Optional, set the token id to nominate a preferred token as the default selection, set "new" to allow new card only.
