@@ -44,8 +44,8 @@ namespace MOLPayXDKExample
 		public partial class Drawable
 		{
 			
-			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			// aapt resource value: 0x7F010000
+			public const int Icon = 2130771968;
 			
 			static Drawable()
 			{
@@ -60,20 +60,20 @@ namespace MOLPayXDKExample
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int MPContainer = 2131099648;
+			// aapt resource value: 0x7F020003
+			public const int closeBtn = 2130837507;
 			
-			// aapt resource value: 0x7f060002
-			public const int MPMOLPayUI = 2131099650;
+			// aapt resource value: 0x7F020000
+			public const int MPContainer = 2130837504;
 			
-			// aapt resource value: 0x7f060001
-			public const int MPMainUI = 2131099649;
+			// aapt resource value: 0x7F020002
+			public const int MPMainUI = 2130837506;
 			
-			// aapt resource value: 0x7f060004
-			public const int closeBtn = 2131099652;
+			// aapt resource value: 0x7F020001
+			public const int MPMOLPayUI = 2130837505;
 			
-			// aapt resource value: 0x7f060003
-			public const int resultTV = 2131099651;
+			// aapt resource value: 0x7F020004
+			public const int resultTV = 2130837508;
 			
 			static Id()
 			{
@@ -88,7 +88,7 @@ namespace MOLPayXDKExample
 		public partial class Layout
 		{
 			
-			// aapt resource value: 0x7f030000
+			// aapt resource value: 0x7F030000
 			public const int layout_molpay = 2130903040;
 			
 			static Layout()
@@ -104,8 +104,8 @@ namespace MOLPayXDKExample
 		public partial class Menu
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int menu_molpay = 2131034112;
+			// aapt resource value: 0x7F040000
+			public const int menu_molpay = 2130968576;
 			
 			static Menu()
 			{
@@ -120,11 +120,11 @@ namespace MOLPayXDKExample
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			// aapt resource value: 0x7F050000
+			public const int ApplicationName = 2131034112;
 			
-			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			// aapt resource value: 0x7F050001
+			public const int Hello = 2131034113;
 			
 			static String()
 			{

@@ -40,13 +40,14 @@ namespace MainActivity
             paymentDetails.Add(MOLPayActivity.mp_currency, "MYR");
             paymentDetails.Add(MOLPayActivity.mp_country, "MY");
             paymentDetails.Add(MOLPayActivity.mp_verification_key, "");
-            paymentDetails.Add(MOLPayActivity.mp_channel, "");
-            paymentDetails.Add(MOLPayActivity.mp_bill_description, "billdesc");
-            paymentDetails.Add(MOLPayActivity.mp_bill_name, "billname");
+            paymentDetails.Add(MOLPayActivity.mp_channel, "multi");
+            paymentDetails.Add(MOLPayActivity.mp_bill_description, "description");
+            paymentDetails.Add(MOLPayActivity.mp_bill_name, "name");
             paymentDetails.Add(MOLPayActivity.mp_bill_email, "example@gmail.com");
             paymentDetails.Add(MOLPayActivity.mp_bill_mobile, "+60123456789");
             paymentDetails.Add(MOLPayActivity.mp_channel_editing, false);
             paymentDetails.Add(MOLPayActivity.mp_editing_enabled, false);
+            paymentDetails.Add(MOLPayActivity.mp_dev_mode, false);
             //paymentDetails.Add(MOLPayActivity.mp_is_escrow, "");
             //paymentDetails.Add(MOLPayActivity.mp_transaction_id, "");
             //paymentDetails.Add(MOLPayActivity.mp_request_type, "");

@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using Android.Util;
 using System.IO;
 using Android.Media;
+using Java.Interop;
 
 namespace MOLPayXDKExample
 {
@@ -162,9 +163,11 @@ namespace MOLPayXDKExample
 
         public class MPMainUIWebClient : WebViewClient
         {
-            public override bool ShouldOverrideUrlLoading(WebView view, string url)
+            public override bool ShouldOverrideUrlLoading(WebView view, IWebResourceRequest request)
             {
-                Console.WriteLine("MPMainUIWebClient shouldOverrideUrlLoading url = " + url);
+                Console.WriteLine("MPMainUIWebClient shouldOverrideUrlLoading url = " + request.Url.ToString());
+
+                string url = request.Url.ToString();
 
                 if (url != null && url.StartsWith(mpopenmolpaywindow))
                 {
@@ -265,13 +268,13 @@ namespace MOLPayXDKExample
 
                     var json = JsonConvert.DeserializeObject<Image>(jsonString);
                     byte[] imageAsBytes = Base64.Decode(json.base64ImageUrlData, Base64Flags.Default);
-                    Bitmap bitmap = BitmapFactory.DecodeByteArray(imageAsBytes, 0, imageAsBytes.Length);
+                    Android.Graphics.Bitmap bitmap = BitmapFactory.DecodeByteArray(imageAsBytes, 0, imageAsBytes.Length);
 
                     var sdCardPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
                     var filePath = System.IO.Path.Combine(sdCardPath.ToString(), json.filename);
                     var stream = new FileStream(filePath, FileMode.Create);
 
-                    bool compress = bitmap.Compress(Bitmap.CompressFormat.Png, 100, stream);
+                    bool compress = bitmap.Compress(Android.Graphics.Bitmap.CompressFormat.Png, 100, stream);
                     stream.Close();
 
                     MediaScannerConnection.ScanFile(Application.Context, new string[] { filePath }, null, null);
@@ -301,13 +304,44 @@ namespace MOLPayXDKExample
 
         public class MPMOLPayUIWebClient : WebViewClient
         {
-            public override void OnPageStarted(WebView view, string url, Bitmap favicon)
+            public override void OnPageStarted(WebView view, string url, Android.Graphics.Bitmap favicon)
             {
                 Console.WriteLine("MPMOLPayUIWebClient onPageStarted url = " + url);
 
                 if (url != null)
                 {
                     NativeWebRequestUrlUpdates(url);
+                }
+            }
+
+            public override void OnPageFinished(WebView view, string url)
+            {
+                Console.WriteLine("MPMOLPayUIWebClient onPageFinished url = " + url);
+
+                if (url.Contains("intermediate_appTNG-EWALLET.php"))
+                {
+                    Console.WriteLine("MPMOLPayUIWebClient tngd found!");
+                    JavascriptResult jr = new JavascriptResult();
+                    view.EvaluateJavascript($"document.getElementById('systembrowserurl').innerHTML", jr);
+                }
+            }
+
+            public class JavascriptResult : Java.Lang.Object, IValueCallback
+            {
+                public string Result;
+                public void OnReceiveValue(Java.Lang.Object result)
+                {
+                    Result = ((Java.Lang.String)result).ToString();
+
+                    byte[] data = Base64.Decode(Result, Base64Flags.Default);
+                    String dataString = System.Text.Encoding.UTF8.GetString(data, 0, data.Length);
+
+                    Console.WriteLine("MPMOLPayUIWebClient JavascriptResult = " + dataString);
+
+                    var uri = Android.Net.Uri.Parse(dataString);
+                    var intent = new Intent(Intent.ActionView, uri);
+                    intent.AddFlags(ActivityFlags.NewTask);
+                    Application.Context.StartActivity(intent);
                 }
             }
         }
@@ -339,7 +373,7 @@ namespace MOLPayXDKExample
 
         public class MPBankUIWebClient : WebViewClient
         {
-            public override void OnPageStarted(WebView view, string url, Bitmap favicon)
+            public override void OnPageStarted(WebView view, string url, Android.Graphics.Bitmap favicon)
             {
                 Console.WriteLine("MPBankUIWebClient onPageStarted url = " + url);
 
