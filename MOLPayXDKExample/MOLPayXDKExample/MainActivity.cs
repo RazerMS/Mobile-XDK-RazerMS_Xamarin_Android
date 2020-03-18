@@ -31,20 +31,20 @@ namespace MainActivity
             base.OnCreate(bundle);
 
             Dictionary<string, object> paymentDetails = new Dictionary<string, object>();
-            paymentDetails.Add(MOLPayActivity.mp_amount, "1.10");
-            paymentDetails.Add(MOLPayActivity.mp_username, "SB_molpayxdk");
-            paymentDetails.Add(MOLPayActivity.mp_password, "cT54#Lk@22");
-            paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "SB_molpayxdk");
-            paymentDetails.Add(MOLPayActivity.mp_app_name, "molpayxdk");
-            paymentDetails.Add(MOLPayActivity.mp_order_ID, "20200223082350");
+            paymentDetails.Add(MOLPayActivity.mp_amount, "");
+            paymentDetails.Add(MOLPayActivity.mp_username, "");
+            paymentDetails.Add(MOLPayActivity.mp_password, "");
+            paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "");
+            paymentDetails.Add(MOLPayActivity.mp_app_name, "");
+            paymentDetails.Add(MOLPayActivity.mp_order_ID, "");
+            paymentDetails.Add(MOLPayActivity.mp_verification_key, "");
             paymentDetails.Add(MOLPayActivity.mp_currency, "MYR");
-            paymentDetails.Add(MOLPayActivity.mp_country, "MY");
-            paymentDetails.Add(MOLPayActivity.mp_verification_key, "4445db44bdb60687a8e7f7903a59c3a9"); //1736e565eb5c24483ea607a253e75817
+            paymentDetails.Add(MOLPayActivity.mp_country, "MY"); 
             paymentDetails.Add(MOLPayActivity.mp_channel, "multi");
             paymentDetails.Add(MOLPayActivity.mp_bill_description, "description");
-            paymentDetails.Add(MOLPayActivity.mp_bill_name, "hisyam adzha");
-            paymentDetails.Add(MOLPayActivity.mp_bill_email, "hisyamadzha@gmail.com");
-            paymentDetails.Add(MOLPayActivity.mp_bill_mobile, "+60176669401");
+            paymentDetails.Add(MOLPayActivity.mp_bill_name, "name");
+            paymentDetails.Add(MOLPayActivity.mp_bill_email, "example@email.com");
+            paymentDetails.Add(MOLPayActivity.mp_bill_mobile, "+60123456789");
             paymentDetails.Add(MOLPayActivity.mp_channel_editing, false);
             paymentDetails.Add(MOLPayActivity.mp_editing_enabled, false);
             paymentDetails.Add(MOLPayActivity.mp_dev_mode, true);
