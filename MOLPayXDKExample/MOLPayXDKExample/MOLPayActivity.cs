@@ -135,7 +135,7 @@ namespace MOLPayXDKExample
             string json = Intent.GetStringExtra(MOLPayPaymentDetails);
             paymentDetails = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
             paymentDetails.Add(module_id, "molpay-mobile-xdk-xamarin-android");
-            paymentDetails.Add(wrapper_version, "1");
+            paymentDetails.Add(wrapper_version, "0");
 
             mpMainUI = FindViewById<WebView>(Resource.Id.MPMainUI);
             mpMOLPayUI = FindViewById<WebView>(Resource.Id.MPMOLPayUI);
@@ -163,17 +163,16 @@ namespace MOLPayXDKExample
 
         public class MPMainUIWebClient : WebViewClient
         {
-            public override bool ShouldOverrideUrlLoading(WebView view, IWebResourceRequest request)
+            [Obsolete]
+            public override bool ShouldOverrideUrlLoading(WebView view, string url)
             {
-                Console.WriteLine("MPMainUIWebClient shouldOverrideUrlLoading url = " + request.Url.ToString());
-
-                string url = request.Url.ToString();
+                Console.WriteLine("MPMainUIWebClient shouldOverrideUrlLoading url = " + url);
 
                 if (url != null && url.StartsWith(mpopenmolpaywindow))
                 {
                     string base64String = url.Replace(mpopenmolpaywindow, "");
                     Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow base64String = " + base64String);
-
+                    
                     string dataString = Base64Decode(base64String);
                     Console.WriteLine("MPMainUIWebClient mpopenmolpaywindow dataString = " + dataString);
 
