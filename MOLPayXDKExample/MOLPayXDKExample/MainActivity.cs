@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace MainActivity
 {
-    [Activity(Label = "MOLPayXDKExample", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "RMSXdkExample", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -31,13 +31,13 @@ namespace MainActivity
             base.OnCreate(bundle);
 
             Dictionary<string, object> paymentDetails = new Dictionary<string, object>();
-            paymentDetails.Add(MOLPayActivity.mp_amount, "");
-            paymentDetails.Add(MOLPayActivity.mp_username, "");
-            paymentDetails.Add(MOLPayActivity.mp_password, "");
-            paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "");
-            paymentDetails.Add(MOLPayActivity.mp_app_name, "");
-            paymentDetails.Add(MOLPayActivity.mp_order_ID, "");
-            paymentDetails.Add(MOLPayActivity.mp_verification_key, "");
+            paymentDetails.Add(MOLPayActivity.mp_amount, "1.01");
+            paymentDetails.Add(MOLPayActivity.mp_username, "api_rmsxdk_mobile_Dev");
+            paymentDetails.Add(MOLPayActivity.mp_password, "api_3CFMnPkh");
+            paymentDetails.Add(MOLPayActivity.mp_merchant_ID, "rmsxdk_mobile_Dev");
+            paymentDetails.Add(MOLPayActivity.mp_app_name, "rmsxdk_mobile_Dev");
+            paymentDetails.Add(MOLPayActivity.mp_order_ID, "xamarin android");
+            paymentDetails.Add(MOLPayActivity.mp_verification_key, "ee738b541eff7b6b495e44771f71c0ec");
             paymentDetails.Add(MOLPayActivity.mp_currency, "MYR");
             paymentDetails.Add(MOLPayActivity.mp_country, "MY"); 
             paymentDetails.Add(MOLPayActivity.mp_channel, "multi");
@@ -47,7 +47,7 @@ namespace MainActivity
             paymentDetails.Add(MOLPayActivity.mp_bill_mobile, "+60123456789");
             paymentDetails.Add(MOLPayActivity.mp_channel_editing, false);
             paymentDetails.Add(MOLPayActivity.mp_editing_enabled, false);
-            paymentDetails.Add(MOLPayActivity.mp_dev_mode, true);
+            paymentDetails.Add(MOLPayActivity.mp_dev_mode, false);
             //paymentDetails.Add(MOLPayActivity.mp_is_escrow, "");
             //paymentDetails.Add(MOLPayActivity.mp_transaction_id, "");
             //paymentDetails.Add(MOLPayActivity.mp_request_type, "");
